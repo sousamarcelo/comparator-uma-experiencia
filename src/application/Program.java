@@ -16,13 +16,9 @@ public class Program {
 		list.add(new Product("Notebook", 1200.0));
 		list.add(new Product("Tablet", 450.0));
 		
-		// comparator com classe anonima
-		Comparator<Product> comp = new Comparator<Product>() {
-			
-			@Override
-			public int compare(Product o1, Product o2) {
-				return o1.getName().toUpperCase().compareTo(o2.getName().toUpperCase());
-			}
+		// comparator com classe com lambda, primeira versão, mas da para melhorar
+		Comparator<Product> comp = (o1, o2) -> {
+				return o1.getName().toUpperCase().compareTo(o2.getName().toUpperCase());			
 		};
 		
 		list.sort(comp);
